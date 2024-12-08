@@ -1,0 +1,222 @@
+/* MEDIA QUERIES */
+
+@media (max-width: 1260px) {
+    .masonry-container {
+      max-width: 720px;
+    }
+  }
+@media (min-width: 0) and (max-width: 1100px) {
+    .masonry-container {
+        max-width: 620px;
+      }
+}
+
+
+@media (min-width: 0) and (max-width: 992px) {
+  .navbar-offcanva {
+    display: block;
+    margin-bottom: -150px;
+    overflow: hidden;
+  }
+  .navbar-main {
+    display: none;
+  }
+  .bg-img {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../../assets/img/main-bg4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+  #contactForm .btn-primary{
+    margin-bottom: 40px;
+  }
+
+  .footer .quick-links {
+    flex-direction: row;
+    display: block;
+    align-self: center;
+  }
+  .footer .quick-links a {
+    margin-left: 15px;
+  }
+  .footer .social-links {
+    margin-right: 0px;
+  }
+  .footer .logo {
+    margin-left: 100px;
+  }
+
+  .footer {
+    justify-content: start;
+  }
+  
+  .masonry-container {
+    max-width: 1000px;
+  }
+  .col-md-4 {
+    width: 100%;
+  }
+  .container-fluid .hero-line-color-third {
+    justify-self: start;
+  }
+}
+
+
+@media (min-width: 0) and (max-width: 768px) {
+    .hero {
+        height: 500px;
+        background-size: cover;
+        background-attachment: scroll;
+      }
+
+      .hero-main {
+        font-size: 1.8rem;
+      }
+
+      .navbar-nav .nav-link,
+      .offcanvas-body .nav-link {
+        font-size: 15px;
+      }
+
+      /* Ensure content in hero section is centered and has no overflow */
+      .hero-text {
+        width: 100%;
+        padding: 0 15px; /* Ensure there's padding on both sides */
+      }
+      .hero{
+        height: 700px;
+      }
+      
+    .hero-main-first{
+      font-size: 30px;
+    }
+    .hero-main{
+      font-size: 40px;
+    }
+  .footer .logo {
+    margin-left: 0%;
+  }
+  .footer .quick-links {
+    margin-bottom: 50px;
+  }
+
+
+  .third-hero-main {
+    height: 400px;
+  }
+
+  .third-hero-content .text-content {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .hero-line-color-third{
+    justify-self: center;
+  }
+
+
+  .second-hero-main {
+    display: block; /* Ensure the section is displayed correctly */
+    padding: 30px 15px; /* Adjust padding on smaller screens */
+  }
+
+  .second-hero-main .row {
+    flex-direction: row; /* Stack columns vertically */
+    margin: 0; /* Remove margin to avoid space between elements */
+    padding: 0; /* Remove padding to ensure full-width layout */
+  }
+
+  .second-hero-main .col {
+    width: 100%; /* Ensure columns stack on top of each other */
+    margin-bottom: 20px; /* Add some space between the stacked items */
+    padding: 0; /* Remove padding to avoid overflow */
+  }
+
+  .second-hero-main img {
+    height: 250px; /* Adjust image height for smaller screens */
+    width: 100%; /* Ensure images scale properly */
+  }
+
+  .left-column h2 {
+    font-size: 2rem; /* Reduce the heading size on smaller screens */
+  }
+
+  .left-column p {
+    font-size: 1rem; /* Reduce paragraph size for readability */
+  }
+
+  .left-column .btn-primary {
+    padding: 8px 20px; /* Smaller button padding */
+    font-size: 0.9rem; /* Adjust button font size */
+  }
+
+  .masonry-container {
+    padding: 10px;
+  }
+
+  .masonry-item {
+    margin-bottom: 15px;
+  }
+
+}
+
+
+@media (min-width: 0) and (max-width: 700px) {
+
+}
+
+
+@media (min-width: 0) and (max-width: 600px) {
+    .second-hero-main .row {
+        flex-direction: column; /* Stack columns vertically */
+    
+      }
+      .second-hero-box{
+      width: 99%;
+      margin-bottom: 40px;
+    }
+    .contact-header h1 {
+      font-size: 50px;
+    }
+}
+
+
+@media (min-width: 0) and (max-width: 500px) {
+  .navbar-offcanva {
+    height: 90px;
+  }
+  .offcanvas-container {
+    height: 70px;
+  }
+  .offcanvas-container .navbar-brand img {
+    height: 70px;
+    width: 120px;
+  }
+  .hero-main-first{
+    font-size: 20px;
+  }
+    .hero-main{
+    font-size: 30px;
+  }
+  .second-hero-main h2{
+    font-size: 30px;
+  }
+  .text-content h2{
+    font-size: 35px;
+  }
+  .masonry-container {
+    column-count: 1;
+  }
+
+  .contact-header{
+    height: 700px;
+  }
+}
+
+
+@media (min-width: 0) and (max-width: 400px) {
+
+}

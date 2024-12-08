@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trek Tours Exploration</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/service.css" />
+    <link rel="stylesheet" href="./assets/css/reponsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Booking Form Styling */
+      .modal-content {
+        border-radius: 15px;
+        border: none;
+        background: #f9f9f9;
+      }
+
+      .modal-header {
+        background-color: #e4005b;
+        color: white;
+        border-radius: 15px 15px 0 0;
+        font-weight: 900;
+      }
+
+      .modal-body {
+        padding: 30px;
+      }
+
+      .modal-body label {
+        color: #555;
+      }
+
+      .modal-body input {
+        background-color: #f1f1f1;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        width: 100%;
+      }
+
+      .modal-body input:focus {
+        border-color: #e4005b;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+      }
+
+      .modal-body .form-control:read-only {
+        background-color: #e9ecef;
+        border-color: #ddd;
+      }
+
+      .modal-body button {
+        background-color: #e4005b;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      .modal-body button:hover {
+        background-color: #c70050;
+      }
+
+      .event-image {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      .form-icon {
+        margin-right: 10px;
+        color: #fd3384;
+      }
+      .accessories {
+        font-size: 14px;
+        color: #777;
+        margin-top: 10px;
+      }
+
+      .accessories i {
+        margin-right: 5px;
+      }
+
+      .book-btn {
+        margin-top: 10px;
+        background-color: #e4005b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      .book-btn:hover {
+        background-color: #cf0053;
+      }
+
+      /* Custom Styles */
+      .tour-offer-card {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        animation: floatUpDown 3s ease-in-out infinite;
+        height: 400px; /* Fixed height */
+        position: relative;
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.85),
+            rgba(0, 0, 0, 0.45)
+          ),
+          url("./backpacker-standing-sunrise-viewpoint-ja-bo-village-mae-hong-son-province-thailand_335224-1356.jpg")
+            no-repeat center center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .tour-offer-content {
+        padding: 15px;
+        flex-grow: 1; /* Allow it to expand and adjust within 400px */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: start;
+      }
+
+      .tour-offer-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #d35400;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      .tour-offer-description {
+        font-size: 1rem;
+        color: #333;
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+
+      .tour-offer-details {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .tour-offer-details i {
+        margin-right: 10px;
+        color: #ff4500;
+      }
+
+      .tour-offer-infinite-scroll {
+        position: relative;
+        animation: scrollText 15s linear infinite;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #ff4500;
+        margin-bottom: 10px;
+      }
+
+      /* Floating Up and Down Animation */
+      @keyframes floatUpDown {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      /* Scroll text animation */
+      @keyframes scrollText {
+        0% {
+          transform: translateX(100%);
+        }
+
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .tour-offer-btn {
+        background-color: #ff4500;
+        color: white;
+        padding: 12px 20px;
+        font-size: 1rem;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .tour-offer-btn:hover {
+        background-color: #d35400;
+        transform: scale(1.05);
+      }
+
+      .tour-offer-btn i {
+        margin-right: 10px;
+      }
+
+      /* Alert style */
+      .tour-offer-alert {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #f39c12;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+      }
+
+      .tour-offer-alert i {
+        margin-right: 10px;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 767px) {
+        .tour-offer-card {
+          height: 400px; /* Maintain the height even on smaller screens */
+        }
+
+        .tour-offer-title {
+          font-size: 1.4rem;
+        }
+
+        .tour-offer-description {
+          font-size: 0.9rem;
+        }
+
+        .tour-offer-details {
+          font-size: 0.8rem;
+        }
+
+        .tour-offer-btn {
+          font-size: 0.9rem;
+          padding: 10px 18px;
+        }
+
+        .tour-offer-alert {
+          font-size: 0.8rem;
+          padding: 8px 15px;
+        }
+      }
+
+      .active {
+        color: #fd477a !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="loader">
+      <div class="grid">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
+
+    <header>
+      <nav class="navbar navbar-main navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand me-auto" href="./index.html"
+            ><img src="./assets/img/LOGO.png" alt="Logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./service.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./projects.html">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact us.html">Contact Us</a>
+              </li>
+              <button
+                type="button"
+                class="btn btn-nav wow animate__animated animate__fadeInRight"
+                data-wow-delay="0.2s"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                LOGIN
+              </button>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Login Modal -->
+      <div
+        class="modal fade"
+        id="loginModal"
+        tabindex="-1"
+        aria-labelledby="loginModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog container-fluid modal-dialog-lg">
+          <div class="modal-content">
+            <div class="modal-header justify-content-center">
+              <h5 class="modal-title text-center" id="loginModalLabel">
+                Login to Your Account
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="username" class="form-label"
+                    ><i class="fas fa-user form-icon"></i>Username</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Enter your username"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label"
+                    ><i class="fas fa-lock form-icon"></i>Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-sm mx-auto d-block"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-offcanva">
+        <div class="container-fluid offcanvas-container">
+          <a class="navbar-brand" href="./index.html"
+            ><img src="./assets/img/LOGO.png" alt="Logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                <img src="./assets/img/LOGO-OFF.png" alt="Logo" />
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link text-dark fs-4"
+                    aria-current="page"
+                    href="./index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark fs-4" href="./about.html"
+                    >About</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link text-dark fs-4 active"
+                    href="./service.html"
+                    >Services</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark fs-4" href="./projects.html"
+                    >Projects</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark fs-4" href="./contact us.html"
+                    >Contact Us</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div
+      class="service-header wow animate__animated animate__fadeIn"
+      data-wow-delay="0.3s"
+    >
+      <div
+        class="container wow animate__animated animate__fadeInUp"
+        data-wow-delay="0.3s"
+      >
+        <h1>Services</h1>
+      </div>
+    </div>
+
+    <div class="container my-5 service-boxes">
+      <h2
+        class="text-center mb-4 wow animate__animated animate__fadeInUp"
+        data-wow-delay="0.3s"
+      >
+        IT'S TIME TO START YOUR ADVENTURES
+      </h2>
+      <div
+        class="hero-line-color wow animate__animated animate__fadeIn"
+        data-wow-delay="0.5s"
+      ></div>
+      <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+        Embark on a journey like never before, where the mountains meet the sky,
+        and every trail leads to unforgettable memories. Whether you're seeking
+        the thrill of a rugged hike, the tranquility of nature, or the challenge
+        of conquering new peaks, our expert-guided treks offer the perfect
+        adventure for every explorer. Step outside your comfort zone, breathe in
+        the fresh air, and discover the world’s most breathtaking landscapes
+        with us. It's time to turn your adventure dreams into reality!
+      </p>
+      <div class="row" id="trip-cards-container"></div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div
+      class="modal fade"
+      id="bookingModal"
+      tabindex="-1"
+      aria-labelledby="bookingModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bookingModalLabel">
+              BOOK YOUR ADVENTURE
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              id="eventImage"
+              class="event-image"
+              src="./assets/img/silhouette-men-hiking-mountain-peak-sunset-generative-ai_188544-12480.jpg"
+              alt="Event Image"
+            />
+            <form id="bookingForm">
+              <div class="mb-3">
+                <label for="tourName" class="form-label"
+                  ><i class="fas fa-map-marker-alt form-icon"></i>Tour
+                  Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tourName"
+                  readonly
+                />
+              </div>
+              <div class="mb-3">
+                <label for="tourDuration" class="form-label"
+                  ><i class="fas fa-calendar-alt form-icon"></i>Duration</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tourDuration"
+                  readonly
+                />
+              </div>
+              <div class="mb-3">
+                <label for="tourPeople" class="form-label"
+                  ><i class="fas fa-users form-icon"></i>Max People</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tourPeople"
+                  readonly
+                />
+              </div>
+              <div class="mb-3">
+                <label for="tourDistance" class="form-label"
+                  ><i class="fas fa-route form-icon"></i>Distance</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tourDistance"
+                  readonly
+                />
+              </div>
+              <div class="mb-3">
+                <label for="tourPrice" class="form-label"
+                  ><i class="fas fa-dollar-sign form-icon"></i>Price</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tourPrice"
+                  readonly
+                />
+              </div>
+              <div class="mb-3">
+                <label for="tourDifficulty" class="form-label"
+                  ><i class="fas fa-trophy form-icon"></i> Tour
+                  Difficulty</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tourDifficulty"
+                  readonly
+                />
+              </div>
+              <div class="mb-3">
+                <label for="tourAccessories" class="form-label"
+                  ><i class="fas fa-cogs form-icon"></i> Accessories
+                  Provided</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tourAccessories"
+                  readonly
+                />
+              </div>
+
+              <button type="submit" class="btn btn-primary">Book Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button
+      id="scrollToTopBtn"
+      class="scroll-to-top"
+      onclick="scrollToServiceHeader()"
+    >
+      ↑
+    </button>
+
+    <!-- Success Message Modal -->
+    <div
+      class="modal fade"
+      id="successModal"
+      tabindex="-1"
+      aria-labelledby="successModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="successModalLabel">
+              Booking Successful!
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Your tour has been booked successfully. You will be redirected
+              shortly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="bg-body-tertiary text-center wow animate__animated animate__fadeIn"
+      data-wow-delay="0.3s"
+    >
+      <!-- Section: Form -->
+      <section class="container-fluid">
+        <form action="">
+          <!--Grid row-->
+          <div
+            class="row d-flex justify-content-center wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.3s"
+          >
+            <!--Grid column-->
+            <div class="col-auto mt-4">
+              <p class="pt-2">
+                <strong>Sign up for our newsletter</strong>
+              </p>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-5 col-12 mt-4">
+              <!-- Email input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="email" id="form5Example24" class="form-control" />
+                <label class="form-label" for="form5Example24"
+                  >Email address</label
+                >
+              </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-auto mt-4">
+              <!-- Submit button -->
+              <button
+                data-mdb-ripple-init
+                type="submit"
+                class="btn btn-outline mb-4"
+              >
+                Subscribe
+              </button>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+
+      <!-- Section: Text -->
+      <section class="mb-4 container mt-auto">
+        <p
+          class="wow animate__animated animate__fadeInUp"
+          data-wow-delay="0.3s"
+        >
+          Stay updated with the latest news, exclusive offers, and exciting
+          travel adventures delivered right to your inbox. Join our community of
+          passionate explorers and be the first to know about upcoming tours,
+          special discounts, and adventure tips. Don’t miss out—sign up today!
+        </p>
+      </section>
+      <!-- Section: Text -->
+
+      <!-- Section: Links -->
+      <section>
+        <div
+          class="container text-center text-md-center mt-5 wow animate__animated animate__fadeInUp"
+          data-wow-delay="0.3s"
+        >
+          <div class="row">
+            <!-- Company Info -->
+            <div
+              class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4 align-items-md-center"
+            >
+              <img
+                src="./assets/img/LOGO-OFF.png"
+                height="180px"
+                width="280px"
+                alt=""
+              />
+            </div>
+
+            <!-- Products -->
+            <div class="col-md-3 col-lg-2 col-sm-6 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Quick Links</h6>
+              <p><a href="./index.html" class="nav-link">Home</a></p>
+              <p><a href="./about.html" class="nav-link">About</a></p>
+              <p><a href="./service.html" class="nav-link">Services</a></p>
+              <p><a href="./projects.html" class="nav-link">Projects</a></p>
+              <p><a href="./contact us.html" class="nav-link">Contact Us</a></p>
+            </div>
+
+            <!-- Useful Links -->
+            <div class="col-md-3 col-lg-2 col-xl-2 col-sm-6 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Tours</h6>
+              <p>
+                <a href="./service.html" class="nav-link">Desert Dune Hike</a>
+              </p>
+              <p>
+                <a href="./service.html" class="nav-link"
+                  >Snowy Mountain Trek</a
+                >
+              </p>
+              <p>
+                <a href="./service.html" class="nav-link">Cliffside Hiking</a>
+              </p>
+              <p>
+                <a href="./service.html" class="nav-link"
+                  >Wildlife Safari Trek</a
+                >
+              </p>
+              <p>
+                <a href="./service.html" class="nav-link">Forest Camp Hike</a>
+              </p>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-4 col-lg-3 col-xl-3 col-sm-6 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+              <p><i class="fas fa-home me-3"></i> Karachi, Sindh, Pakistan</p>
+              <p><i class="fas fa-envelope me-3"></i> Aqeelabbas1540230@</p>
+              <p><i class="fas fa-phone me-3"></i> +92 310 2000935</p>
+              <p><i class="fas fa-print me-3"></i> +92 309 3235625</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Links -->
+
+      <!-- Grid container -->
+      <!-- Section: Social media -->
+      <section
+        class="mb-4 wow animate__animated animate__fadeInUp"
+        data-wow-delay="0.3s"
+      >
+        <!-- Facebook -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+
+        <!-- Twitter -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+
+        <!-- Google -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-google"></i
+        ></a>
+
+        <!-- Instagram -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+
+        <!-- Linkedin -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+
+        <!-- Github -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-3 wow animate__animated animate__fadeInUp"
+        data-wow-delay="0.3s"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2024 Copyright:
+        <a class="text-reset fw-bold" href="#"
+          >AQEEL ABBAS | FRONT END DEVELOPER.</a
+        >
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <script>
+      const tripData = [
+        {
+          image:
+            "assets/img/silhouette-men-hiking-mountain-peak-sunset-generative-ai_188544-12480.jpg",
+          heading: "Mountain Adventure",
+          time: "5 Days",
+          people: "4",
+          services: ["Guided Tours", "Camping Equipment", "Meals Included"],
+          distance: "50 km",
+          price: "$500",
+          difficulty: "Medium",
+          accessories: "Tent, Meals, Gear",
+        },
+        {
+          image: "assets/img/stock-photo-illustration_1137879-108144.jpg",
+          heading: "Desert Excursion",
+          time: "3 Days",
+          people: "6",
+          services: ["Transportation", "Accommodation", "Local Guide"],
+          distance: "120 km",
+          price: "$400",
+          difficulty: "Hard",
+          accessories: "Tent, Meals, Guide",
+        },
+        {
+          image:
+            "assets/img/traveller-explore-rugged-landscape-iceland_346278-239.jpg",
+          heading: "Mountain Lake Adventure",
+          time: "7 Days",
+          people: "5",
+          services: ["Local Guide", "Meals Included", "Canoe Rental"],
+          distance: "70 km",
+          price: "$750",
+          difficulty: "Medium",
+          accessories: "Tent, Meals, Canoe",
+        },
+        {
+          image: "assets/img/stock-photo-illustration_1137879-108144.jpg",
+          heading: "Forest Trail Hiking",
+          time: "4 Days",
+          people: "8",
+          services: ["Guided Tours", "Meals Included", "Camping Gear"],
+          distance: "40 km",
+          price: "$350",
+          difficulty: "Easy",
+          accessories: "Tent, Meals, Gear",
+        },
+        {
+          image:
+            "assets/img/silhouette-men-hiking-mountain-peak-sunset-generative-ai_188544-12480.jpg",
+          heading: "Snowy Mountain Trek",
+          time: "6 Days",
+          people: "3",
+          services: ["Snow Gear", "Guided Tours", "Meals Included"],
+          distance: "30 km",
+          price: "$600",
+          difficulty: "Hard",
+          accessories: "Snow Boots, Tent, Meals",
+        },
+        {
+          image: "assets/img/summer-landscape-mountains-blue-sky_661209-43.jpg",
+          heading: "Desert Dune Hike",
+          time: "2 Days",
+          people: "10",
+          services: ["Guided Tours", "Camel Ride", "Meals Included"],
+          distance: "80 km",
+          price: "$300",
+          difficulty: "Medium",
+          accessories: "Camel, Tent, Meals",
+        },
+        {
+          image:
+            "assets/img/traveller-explore-rugged-landscape-iceland_346278-239.jpg",
+          heading: "Volcano Trekking",
+          time: "5 Days",
+          people: "6",
+          services: ["Guided Tours", "Meals Included", "Volcano Gear"],
+          distance: "100 km",
+          price: "$650",
+          difficulty: "Hard",
+          accessories: "Tent, Meals, Volcano Gear",
+        },
+        {
+          image:
+            "assets/img/silhouette-men-hiking-mountain-peak-sunset-generative-ai_188544-12480.jpg",
+          heading: "Cliffside Hiking",
+          time: "4 Days",
+          people: "5",
+          services: ["Climbing Gear", "Meals Included", "Guided Tours"],
+          distance: "50 km",
+          price: "$550",
+          difficulty: "Medium",
+          accessories: "Climbing Gear, Tent, Meals",
+        },
+        {
+          image: "assets/img/stock-photo-illustration_1137879-108144.jpg",
+          heading: "Wildlife Safari Trek",
+          time: "8 Days",
+          people: "6",
+          services: ["Safari Guide", "Meals Included", "Transportation"],
+          distance: "200 km",
+          price: "$800",
+          difficulty: "Medium",
+          accessories: "Tent, Meals, Safari Gear",
+        },
+        {
+          image:
+            "assets/img/traveller-explore-rugged-landscape-iceland_346278-239.jpg",
+          heading: "River Canoe Adventure",
+          time: "4 Days",
+          people: "7",
+          services: ["Canoe Rental", "Meals Included", "Guided Tours"],
+          distance: "50 km",
+          price: "$450",
+          difficulty: "Easy",
+          accessories: "Canoe, Tent, Meals",
+        },
+        {
+          image:
+            "assets/img/silhouette-men-hiking-mountain-peak-sunset-generative-ai_188544-12480.jpg",
+          heading: "Tropical Hiking",
+          time: "3 Days",
+          people: "5",
+          services: ["Guided Tours", "Meals Included", "Accommodation"],
+          distance: "60 km",
+          price: "$400",
+          difficulty: "Easy",
+          accessories: "Tent, Meals",
+        },
+        {
+          image: "assets/img/stock-photo-illustration_1137879-108144.jpg",
+          heading: "Mountain Climbing Adventure",
+          time: "10 Days",
+          people: "4",
+          services: ["Climbing Gear", "Meals Included", "Guide"],
+          distance: "150 km",
+          price: "$1200",
+          difficulty: "Hard",
+          accessories: "Climbing Gear, Tent, Meals",
+        },
+        {
+          image:
+            "assets/img/traveller-explore-rugged-landscape-iceland_346278-239.jpg",
+          heading: "Coastal Hiking",
+          time: "6 Days",
+          people: "6",
+          services: ["Local Guide", "Meals Included", "Transport"],
+          distance: "90 km",
+          price: "$550",
+          difficulty: "Medium",
+          accessories: "Tent, Meals, Gear",
+        },
+        {
+          image:
+            "assets/img/silhouette-men-hiking-mountain-peak-sunset-generative-ai_188544-12480.jpg",
+          heading: "Forest Camp Hike",
+          time: "4 Days",
+          people: "8",
+          services: ["Meals Included", "Camping Gear", "Local Guide"],
+          distance: "55 km",
+          price: "$450",
+          difficulty: "Easy",
+          accessories: "Tent, Meals, Gear",
+        },
+        {
+          image: "assets/img/stock-photo-illustration_1137879-108144.jpg",
+          heading: "Rock Climbing Trip",
+          time: "5 Days",
+          people: "5",
+          services: ["Climbing Gear", "Meals Included", "Guided Tours"],
+          distance: "60 km",
+          price: "$500",
+          difficulty: "Medium",
+          accessories: "Climbing Gear, Tent, Meals",
+        },
+        {
+          image: "assets/img/summer-landscape-mountains-blue-sky_661209-43.jpg",
+          heading: "Volcano Eruption Hike",
+          time: "7 Days",
+          people: "3",
+          services: ["Guided Tours", "Meals Included", "Eruption Gear"],
+          distance: "120 km",
+          price: "$700",
+          difficulty: "Hard",
+          accessories: "Tent, Meals, Volcano Gear",
+        },
+        {
+          image:
+            "assets/img/silhouette-men-hiking-mountain-peak-sunset-generative-ai_188544-12480.jpg",
+          heading: "Riverside Trekking",
+          time: "6 Days",
+          people: "6",
+          services: ["Guided Tours", "Meals Included", "Rafting Gear"],
+          distance: "80 km",
+          price: "$650",
+          difficulty: "Medium",
+          accessories: "Rafting Gear, Tent, Meals",
+        },
+        {
+          image: "assets/img/stock-photo-illustration_1137879-108144.jpg",
+          heading: "Jungle Adventure",
+          time: "4 Days",
+          people: "5",
+          services: ["Jungle Guide", "Meals Included", "Camping Gear"],
+          distance: "90 km",
+          price: "$500",
+          difficulty: "Medium",
+          accessories: "Tent, Meals, Jungle Gear",
+        },
+        {
+          image:
+            "assets/img/traveller-explore-rugged-landscape-iceland_346278-239.jpg",
+          heading: "Volcano Hiking Expedition",
+          time: "9 Days",
+          people: "5",
+          services: ["Guided Tours", "Meals Included", "Camping Gear"],
+          distance: "140 km",
+          price: "$900",
+          difficulty: "Hard",
+          accessories: "Tent, Meals, Volcano Gear",
+        },
+        {
+          image: "assets/img/stock-photo-illustration_1137879-108144.jpg",
+          heading: "River Camping Adventure",
+          time: "4 Days",
+          people: "7",
+          services: ["Camping Gear", "Rafting", "Meals Included"],
+          distance: "60 km",
+          price: "$500",
+          difficulty: "Medium",
+          accessories: "Raft, Tent, Meals",
+        },
+      ];
+
+      function createTripCards(data) {
+        const container = document.getElementById("trip-cards-container");
+
+        data.forEach((trip) => {
+          const cardWrapper = document.createElement("div");
+          cardWrapper.classList.add(
+            "col-lg-6",
+            "col-md-6",
+            "col-sm-12",
+            "mb-4"
+          );
+
+          const card = document.createElement("div");
+          card.classList.add(
+            "trip-card",
+            "d-flex",
+            "align-items-center",
+            "wow",
+            "animate__animated",
+            "animate__fadeInUp"
+          );
+
+          // Card content with dynamic accessories
+          card.innerHTML = `
+            <img src="${trip.image}" alt="${trip.heading}">
+            <div class="card-body">
+                <h5 class="card-title">${trip.heading}</h5>
+                <div class="trip-details">
+                    <div><i class="fas fa-calendar-alt"></i> ${trip.time}</div>
+                    <div><i class="fas fa-users"></i> ${
+                      trip.people
+                    } People</div>
+                    <div><i class="fas fa-route"></i> ${trip.distance}</div>
+                    <div><i class="fas fa-dollar-sign"></i> ${trip.price}</div>
+                    <div><i class="fas fa-trophy"></i> Difficulty: <span class="tour-difficulty">${
+                      trip.difficulty
+                    }</span></div>
+                </div>
+                <div class="accessories">
+                    <i class="fas fa-cogs form-icon"></i> ${trip.accessories
+                      .split(",")
+                      .join(" | ")}
+                </div>
+                <button class="btn btn-primary book-btn">Book Now</button>
+            </div>
+        `;
+
+          // Add click event to open modal with tour data
+          card.addEventListener("click", () => {
+            // Fill modal with selected trip data
+            document.getElementById("tourName").value = trip.heading;
+            document.getElementById("tourDuration").value = trip.time;
+            document.getElementById("tourPeople").value = trip.people;
+            document.getElementById("tourDistance").value = trip.distance;
+            document.getElementById("tourPrice").value = trip.price;
+            document.getElementById("tourDifficulty").value = trip.difficulty;
+            document.getElementById("tourAccessories").value = trip.accessories;
+
+            // Show the modal
+            const bookingModal = new bootstrap.Modal(
+              document.getElementById("bookingModal")
+            );
+            bookingModal.show();
+          });
+
+          cardWrapper.appendChild(card);
+          container.appendChild(cardWrapper);
+        });
+      }
+
+      // Call function to create cards
+      createTripCards(tripData);
+
+      // Function to scroll to the .service-header section
+      function scrollToServiceHeader() {
+        document.querySelector(".service-header").scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+
+      // Show the button after scrolling past four cards
+      window.onscroll = function () {
+        const tripCards = document.querySelectorAll(".trip-card");
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        const fourthCardPosition = tripCards[3]
+          ? tripCards[3].getBoundingClientRect().top
+          : 0;
+
+        if (window.scrollY >= fourthCardPosition) {
+          scrollToTopBtn.style.display = "block";
+        } else {
+          scrollToTopBtn.style.display = "none";
+        }
+      };
+
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form from submitting normally
+
+          // Get the booking form modal instance
+          var bookingFormModal = bootstrap.Modal.getInstance(
+            document.getElementById("bookingModal")
+          );
+
+          // Close the booking form modal
+          if (bookingFormModal) {
+            bookingFormModal.hide(); // Close the booking form modal
+          } else {
+            console.log("Booking modal instance not found!");
+          }
+
+          // Show the success modal
+          var successModal = new bootstrap.Modal(
+            document.getElementById("successModal")
+          );
+          successModal.show(); // Show the success modal
+
+          // Simulate a small delay for the success message to show before reloading
+          setTimeout(function () {
+            location.reload(); // Reload the page after 4 seconds
+          }, 3000); // Adjust time as needed
+        });
+
+      // Show loader during page load
+      window.addEventListener("DOMContentLoaded", function () {
+        const loader = document.getElementById("loader");
+        loader.style.display = "flex"; // Make sure the loader is visible during loading
+
+        // Hide the loader immediately when the page is ready
+        loader.style.display = "none"; // Hide the loader once the page is loaded
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        new WOW().init();
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  </body>
+</html>

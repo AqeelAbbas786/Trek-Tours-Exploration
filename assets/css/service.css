@@ -1,0 +1,195 @@
+body {
+  background-color: #ffffff;
+  color: #1f2d40;
+}
+.service-header {
+  background: linear-gradient(rgba(0, 0, 0, 0.314), rgba(0, 0, 0, 0.318)),
+    url(../../assets/img/high-angle-shot-beautiful-trees-hills-clouds-blue-sky_181624-7767.jpg)
+      no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 70px 0;
+  text-align: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  margin: 0 auto;
+  height: 600px;
+}
+.container {
+  margin-top: 200px;
+  margin-bottom: 30px;
+}
+.service-header h1 {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(0, 0, 0, 0.3),
+    4px 4px 8px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar-main {
+  margin-top: -200px;
+}
+
+.trip-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.trip-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.315);
+}
+
+.trip-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.trip-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.trip-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.trip-details div {
+  display: flex;
+  align-items: center;
+}
+
+.trip-details div i {
+  color: #007bff;
+  margin-right: 8px;
+}
+.service-boxes .hero-line-color {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.service-boxes p {
+  width: 60%;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+  justify-self: center;
+}
+
+.service-boxes h2 {
+  font-size: 40px;
+  font-weight: 900;
+}
+
+@media (max-width: 992px) {
+  .col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none; /* Hidden by default */
+  background-color: #fb2056;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  animation: showButton 0.5s ease forwards;
+}
+.scroll-to-top:hover {
+  background-color: #df0038;
+  box-shadow: 5px 10px 30px rgba(255, 13, 13, 0.2);
+}
+/* Animation for when the button appears */
+@keyframes showButton {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 576px) {
+  .trip-card {
+    flex-direction: column; /* Stack image and description vertically */
+  }
+  .trip-details {
+    display: flex;
+    justify-content: center;
+  }
+
+  .trip-card img {
+    width: 100%; /* Full width on mobile */
+    margin-bottom: 1rem; /* Space between image and content */
+  }
+
+  .trip-card .card-body {
+    text-align: center; /* Center text for mobile view */
+  }
+}
+
+/* Custom width for modal on large screens */
+@media (min-width: 992px) {
+  .modal-dialog.modal-dialog-lg {
+    max-width: 80% !important;
+  }
+  .modal-header .modal-title {
+    text-align: center;
+  }
+
+  /* Resize the button and center it */
+  .btn.btn-sm {
+    font-size: 0.8rem; /* Make the button smaller */
+    padding: 5px 15px; /* Adjust button padding */
+  }
+  .btn.btn-sm.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Center the button */
+    width: 40%;
+    font-size: 20px;
+  }
+  .event-image {
+    height: 300px;
+  }
+}

@@ -1,0 +1,93 @@
+body {
+    background-color: #ffffff;
+    font-family: 'Roboto Slab', serif;
+    color: #2A3D56;
+}
+
+.contact-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.314), rgba(0, 0, 0, 0.318)),
+    url(../../assets/img/summer-landscape-mountains-blue-sky_661209-43.jpg) no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    margin: 0 auto;
+    height: 600px;
+}
+
+.contact-header h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(0, 0, 0, 0.3),
+        4px 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+.contact-header p {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(0, 0, 0, 0.3),
+        4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    margin-top: 200px;
+    margin-bottom: 30px;
+}
+
+.form-control {
+    border-radius: 0.25rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+    border-color: #005eff;
+    box-shadow: 0 0 5px hsla(218, 100%, 50%, 0.454);
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+.form-group label{
+    margin-bottom: 10px;
+}
+.btn-primary {
+    background-color: #fb2056;
+    border-color: #fb2056;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s, border-color 0.3s;
+    margin-top: 30px;
+}
+
+.btn-primary:hover {
+    background-color: #e01750;
+    border-color: #e01750;
+}
+
+.contact-info {
+    margin-top: 0px;
+}
+
+.contact-info p{
+    margin-bottom: 20px;
+}
+
+.icon {
+    font-size: 2rem;
+    margin-right: 20px;
+    color: #fb2056;
+}
+
+.testimonial {
+    background-color: #7eeaf0;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

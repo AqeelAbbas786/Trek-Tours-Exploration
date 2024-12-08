@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Trek Tours Exploration</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/contactUs.css" />
+    <link rel="stylesheet" href="./assets/css/reponsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Poppins", serif;
+      }
+      .navbar-main {
+        margin-top: -200px;
+      }
+      .contact-header .hero-line-color {
+        margin-bottom: 20px;
+      }
+
+      /* Success Message Styling */
+      #successMessage {
+        display: none;
+        background-color: #e4005b; /* Matching background color */
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 1.2rem;
+        margin-top: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-20px); /* Initial state for animation */
+        opacity: 0; /* Initially hidden */
+        animation: slideIn 0.5s ease-out forwards; /* Add sliding animation */
+      }
+
+      /* Animation for Success Message */
+      @keyframes slideIn {
+        0% {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Make Success Message more visually appealing */
+      #successMessage i {
+        margin-right: 10px;
+        font-size: 1.5rem;
+      }
+
+      /* Optional: Customize the alert icon */
+      #successMessage:before {
+        content: "\f00c"; /* Check icon from Font Awesome */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+      }
+
+      .is-invalid {
+        border: 2px solid red;
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+      }
+
+      .is-valid {
+        border: 2px solid green;
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+      }
+
+      .active {
+        color: #fd477a !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Loader -->
+    <div id="loader">
+      <div class="grid">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
+
+    <header>
+      <nav class="navbar navbar-main navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand me-auto" href="./index.html"
+            ><img src="./assets/img/LOGO.png" alt="Logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./service.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./projects.html">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./contact us.html"
+                  >Contact Us</a
+                >
+              </li>
+              <button
+                type="button"
+                class="btn btn-nav wow animate__animated animate__fadeInRight"
+                data-wow-delay="0.2s"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                LOGIN
+              </button>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Login Modal -->
+      <div
+        class="modal fade"
+        id="loginModal"
+        tabindex="-1"
+        aria-labelledby="loginModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog container-fluid modal-dialog-lg">
+          <div class="modal-content">
+            <div class="modal-header justify-content-center">
+              <h5 class="modal-title text-center" id="loginModalLabel">
+                Login to Your Account
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="username" class="form-label"
+                    ><i class="fas fa-user form-icon"></i>Username</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Enter your username"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label"
+                    ><i class="fas fa-lock form-icon"></i>Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-sm mx-auto d-block"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-offcanva">
+        <div class="container-fluid offcanvas-container">
+          <a class="navbar-brand" href="./index.html"
+            ><img src="./assets/img/LOGO.png" alt="Logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                <img src="./assets/img/LOGO-OFF.png" alt="Logo" />
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link text-dark fs-4"
+                    aria-current="page"
+                    href="./index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark fs-4" href="./about.html"
+                    >About</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark fs-4" href="./service.html"
+                    >Services</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark fs-4" href="./projects.html"
+                    >Projects</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link text-dark fs-4 active"
+                    href="./contact us.html"
+                    >Contact Us</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div
+      class="contact-header wow animate__animated animate__fadeIn"
+      data-wow-delay="0.3s"
+    >
+      <div class="container">
+        <h1
+          class="wow animate__animated animate__fadeInUp"
+          data-wow-delay="0.3s"
+        >
+          Contact Us
+        </h1>
+        <div
+          class="hero-line-color wow animate__animated animate__fadeIn"
+          data-wow-delay="0.7s"
+        ></div>
+        <p
+          class="wow animate__animated animate__fadeInUp"
+          data-wow-delay="0.3s"
+        >
+          We'd love to hear from you!
+        </p>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div
+      id="successMessage"
+      class="alert alert-success wow animate__animated animate__fadeInUp"
+      data-wow-delay="0.3s"
+      role="alert"
+      style="display: none"
+    >
+      Your message has been sent successfully!
+    </div>
+
+    <div class="container my-5">
+      <div class="row">
+        <div
+          class="col-lg-6 wow animate__animated animate__fadeIn"
+          data-wow-delay="0.2 s"
+        >
+          <h2
+            class="wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.3s"
+          >
+            GET IN TOUCH
+          </h2>
+          <form id="contactForm">
+            <div
+              class="form-group mb-3 wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.3s"
+            >
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Your Name"
+                required
+                pattern="[A-Za-z\s]{2,50}"
+                title="Name should contain only letters and be 2-50 characters long."
+              />
+            </div>
+            <div
+              class="form-group mb-3 wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.3s"
+            >
+              <label for="email">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Your Email"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                title="Please enter a valid email address."
+              />
+            </div>
+            <div
+              class="form-group mb-3 wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.3s"
+            >
+              <label for="message">Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                rows="5"
+                placeholder="Your Message"
+                required
+                minlength="10"
+                maxlength="500"
+                title="Message should be 10-500 characters long."
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.3s"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+        <div
+          class="col-lg-6 contact-info wow animate__animated animate__fadeIn"
+          data-wow-delay="0.2s"
+        >
+          <h2
+            class="wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.3s"
+          >
+            Contact Information
+          </h2>
+          <p
+            class="wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.3s"
+          >
+            <i class="fas fa-envelope icon"></i> Aqeelabbas1540230@gmail.com
+          </p>
+          <p
+            class="wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.3s"
+          >
+            <i class="fas fa-phone-alt icon"></i> +92 309-3235625
+          </p>
+          <p>
+            <i
+              class="fas fa-map-marker-alt icon wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.3s"
+            ></i>
+            Korangi Industrial Area, Karachi, Sindh, Pakistan
+          </p>
+          <h3
+            class="wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.3s"
+          >
+            Find Us
+          </h3>
+          <div
+            id="map"
+            style="
+              width: 100%;
+              height: 400px wow animate__animated animate__fadeInUp;
+            "
+            data-wow-delay="0.3s"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.913167803292!2d-122.42302628468177!3d37.774929279759575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808581f7a0f7e5b9%3A0x11d7a8b66b61f105!2sSan+Francisco%2C+CA+94102!5e0!3m2!1sen!2sus!4v1635339561910!5m2!1sen!2sus"
+              width="100%"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="bg-body-tertiary text-center wow animate__animated animate__fadeIn"
+      data-wow-delay="0.3s"
+    >
+      <!-- Section: Form -->
+      <section class="container-fluid">
+        <form action="">
+          <!--Grid row-->
+          <div
+            class="row d-flex justify-content-center wow animate__animated animate__fadeInUp"
+            data-wow-delay="0.3s"
+          >
+            <!--Grid column-->
+            <div class="col-auto mt-4">
+              <p class="pt-2">
+                <strong>Sign up for our newsletter</strong>
+              </p>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-5 col-12 mt-4">
+              <!-- Email input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="email" id="form5Example24" class="form-control" />
+                <label class="form-label" for="form5Example24"
+                  >Email address</label
+                >
+              </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-auto mt-4">
+              <!-- Submit button -->
+              <button
+                data-mdb-ripple-init
+                type="submit"
+                class="btn btn-outline mb-4"
+              >
+                Subscribe
+              </button>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+
+      <!-- Section: Text -->
+      <section class="mb-4 container mt-auto">
+        <p
+          class="wow animate__animated animate__fadeInUp"
+          data-wow-delay="0.3s"
+        >
+          Stay updated with the latest news, exclusive offers, and exciting
+          travel adventures delivered right to your inbox. Join our community of
+          passionate explorers and be the first to know about upcoming tours,
+          special discounts, and adventure tips. Don’t miss out—sign up today!
+        </p>
+      </section>
+      <!-- Section: Text -->
+
+      <!-- Section: Links -->
+      <section>
+        <div
+          class="container text-center text-md-center mt-5 wow animate__animated animate__fadeInUp"
+          data-wow-delay="0.3s"
+        >
+          <div class="row">
+            <!-- Company Info -->
+            <div
+              class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4 align-items-md-center"
+            >
+              <img
+                src="./assets/img/LOGO-OFF.png"
+                height="180px"
+                width="280px"
+                alt=""
+              />
+            </div>
+
+            <!-- Products -->
+            <div class="col-md-3 col-lg-2 col-sm-6 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Quick Links</h6>
+              <p><a href="./index.html" class="nav-link">Home</a></p>
+              <p><a href="./about.html" class="nav-link">About</a></p>
+              <p><a href="./service.html" class="nav-link">Services</a></p>
+              <p><a href="./projects.html" class="nav-link">Projects</a></p>
+              <p><a href="./contact us.html" class="nav-link">Contact Us</a></p>
+            </div>
+
+            <!-- Useful Links -->
+            <div class="col-md-3 col-lg-2 col-xl-2 col-sm-6 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Tours</h6>
+              <p>
+                <a href="./service.html" class="nav-link">Desert Dune Hike</a>
+              </p>
+              <p>
+                <a href="./service.html" class="nav-link"
+                  >Snowy Mountain Trek</a
+                >
+              </p>
+              <p>
+                <a href="./service.html" class="nav-link">Cliffside Hiking</a>
+              </p>
+              <p>
+                <a href="./service.html" class="nav-link"
+                  >Wildlife Safari Trek</a
+                >
+              </p>
+              <p>
+                <a href="./service.html" class="nav-link">Forest Camp Hike</a>
+              </p>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-4 col-lg-3 col-xl-3 col-sm-6 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+              <p><i class="fas fa-home me-3"></i> Karachi, Sindh, Pakistan</p>
+              <p><i class="fas fa-envelope me-3"></i> Aqeelabbas1540230@</p>
+              <p><i class="fas fa-phone me-3"></i> +92 310 2000935</p>
+              <p><i class="fas fa-print me-3"></i> +92 309 3235625</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Links -->
+
+      <!-- Grid container -->
+      <!-- Section: Social media -->
+      <section
+        class="mb-4 wow animate__animated animate__fadeInUp"
+        data-wow-delay="0.3s"
+      >
+        <!-- Facebook -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+
+        <!-- Twitter -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+
+        <!-- Google -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-google"></i
+        ></a>
+
+        <!-- Instagram -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+
+        <!-- Linkedin -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+
+        <!-- Github -->
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-3 wow animate__animated animate__fadeInUp"
+        data-wow-delay="0.3s"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2024 Copyright:
+        <a class="text-reset fw-bold" href="#"
+          >AQEEL ABBAS | FRONT END DEVELOPER.</a
+        >
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <script>
+      // Real-time validation function with error messages
+      function validateInput(input, pattern, errorMessage) {
+        // Remove previous error message
+        const existingError = input.nextElementSibling;
+        if (
+          existingError &&
+          existingError.classList.contains("error-message")
+        ) {
+          existingError.remove();
+        }
+
+        // Validation check
+        if (input.value.match(pattern)) {
+          input.classList.add("is-valid");
+          input.classList.remove("is-invalid");
+        } else {
+          input.classList.add("is-invalid");
+          input.classList.remove("is-valid");
+
+          // Append error message
+          const errorElement = document.createElement("small");
+          errorElement.classList.add("error-message", "text-danger");
+          errorElement.textContent = errorMessage;
+          input.parentElement.appendChild(errorElement);
+        }
+      }
+
+      // Name field validation
+      document.getElementById("name").addEventListener("input", function () {
+        const namePattern = /^[A-Za-z\s]{2,50}$/;
+        const errorMessage =
+          "Name must be 2-50 characters long and contain only letters and spaces.";
+        validateInput(this, namePattern, errorMessage);
+      });
+
+      // Email field validation
+      document.getElementById("email").addEventListener("input", function () {
+        const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+        const errorMessage = "Please enter a valid email address.";
+        validateInput(this, emailPattern, errorMessage);
+      });
+
+      // Message field validation
+      document.getElementById("message").addEventListener("input", function () {
+        const existingError = this.nextElementSibling;
+        if (
+          existingError &&
+          existingError.classList.contains("error-message")
+        ) {
+          existingError.remove();
+        }
+
+        if (this.value.length >= 10 && this.value.length <= 500) {
+          this.classList.add("is-valid");
+          this.classList.remove("is-invalid");
+        } else {
+          this.classList.add("is-invalid");
+          this.classList.remove("is-valid");
+
+          // Append error message
+          const errorElement = document.createElement("small");
+          errorElement.classList.add("error-message", "text-danger");
+          errorElement.textContent =
+            "Message must be between 10 and 500 characters.";
+          this.parentElement.appendChild(errorElement);
+        }
+      });
+
+      // Submission validation
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Perform final validation checks
+          const nameField = document.getElementById("name");
+          const emailField = document.getElementById("email");
+          const messageField = document.getElementById("message");
+
+          // Trigger validation for all fields
+          nameField.dispatchEvent(new Event("input"));
+          emailField.dispatchEvent(new Event("input"));
+          messageField.dispatchEvent(new Event("input"));
+
+          // Check if the form is valid
+          if (this.checkValidity()) {
+            document.getElementById("successMessage").style.display = "block";
+            document
+              .getElementById("successMessage")
+              .scrollIntoView({ behavior: "smooth" });
+
+            setTimeout(function () {
+              location.reload();
+            }, 4000);
+          } else {
+            this.reportValidity();
+          }
+        });
+
+      // Show loader during page load
+      window.addEventListener("DOMContentLoaded", function () {
+        const loader = document.getElementById("loader");
+        loader.style.display = "flex"; // Make sure the loader is visible during loading
+
+        // Hide the loader immediately when the page is ready
+        loader.style.display = "none"; // Hide the loader once the page is loaded
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        new WOW().init();
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  </body>
+</html>
